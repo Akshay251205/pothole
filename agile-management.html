@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Management Board - RoadGuard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-road"></i> RoadGuard <span style="font-size: 12px; font-weight:600; background-color: var(--primary-color); color: #FFF; padding: 2px 8px; border-radius: 20px; margin-left: 10px;">Authority</span>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="citizen-dashboard.html" class="nav-link">Citizen Portal</a></li>
+                    <li><a href="report-pothole.html" class="nav-link">Report Pothole</a></li>
+                    <li><a href="track-status.html" class="nav-link">Track Status</a></li>
+                    <li><a href="authority-dashboard.html" class="nav-link">Authority Dashboard</a></li>
+                    <li><a href="agile-management.html" class="nav-link active">Agile PM</a></li>
+                    <li><a href="cicd.html" class="nav-link">CI/CD</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger-menu" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="authority-dashboard.html" class="sidebar-link">
+                        <i class="fas fa-tasks"></i> Complaints Queue
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics.html" class="sidebar-link">
+                        <i class="fas fa-chart-bar"></i> Analytics
+                    </a>
+                </li>
+                <li>
+                    <a href="agile-management.html" class="sidebar-link active">
+                        <i class="fas fa-folder"></i> Scrumban Board
+                    </a>
+                </li>
+                <li>
+                    <a href="cicd.html" class="sidebar-link">
+                        <i class="fas fa-code-branch"></i> CI/CD Pipeline
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="btn btn-danger" style="width: 100%;" onclick="Auth.logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content" style="max-width: 100%;">
+            <div class="content-header">
+                <div>
+                    <h2>Agile Scrumban Workspace</h2>
+                    <p>Track the 28 project user stories across epics, sprints, and workflow columns. Drag cards to update statuses.</p>
+                </div>
+            </div>
+
+            <!-- Epics Filters and Storyboard -->
+            <div class="agile-section-grid" style="margin-bottom: 40px;">
+                <div class="epics-sidebar">
+                    <h3 style="font-size: 15px; font-weight:700; border-bottom:1px solid var(--border-color); padding-bottom: 8px;">Jira Epics</h3>
+                    <ul class="epics-list">
+                        <li class="epic-badge active" data-epic="All" style="color:var(--text-main); background:rgba(0,0,0,0.04);">All Epics</li>
+                        <li class="epic-badge epic-1" data-epic="Citizen Reporting">Citizen Reporting</li>
+                        <li class="epic-badge epic-2" data-epic="Authority Dashboard">Authority Dashboard</li>
+                        <li class="epic-badge epic-3" data-epic="Status Tracking">Status Tracking</li>
+                        <li class="epic-badge epic-4" data-epic="Analytics">Analytics</li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px; font-size:12px; color:var(--text-muted);">
+                        <p style="font-weight:700; margin-bottom:8px; text-transform:uppercase;">Sprint Planning</p>
+                        <ul style="list-style:none; padding-left:5px; line-height:1.8;">
+                            <li><strong>Sprint 1</strong>: Auth & Core Setup</li>
+                            <li><strong>Sprint 2</strong>: Reporting & Upload</li>
+                            <li><strong>Sprint 3</strong>: Admin Actions</li>
+                            <li><strong>Sprint 4</strong>: Analytics Canvas</li>
+                            <li><strong>Sprint 5</strong>: Testing & Delivery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Kanban Scrumban Board -->
+                <div style="overflow-x: auto;">
+                    <div class="scrumban-board">
+                        
+                        <!-- Column: Backlog -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>Backlog</h4>
+                                <span class="card-count" id="count-backlog">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-backlog"></div>
+                        </div>
+
+                        <!-- Column: Ready -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>Ready</h4>
+                                <span class="card-count" id="count-ready">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-ready"></div>
+                        </div>
+
+                        <!-- Column: Selected for Sprint -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>Sprint</h4>
+                                <span class="card-count" id="count-sprint">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-sprint"></div>
+                        </div>
+
+                        <!-- Column: In Progress -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>In Progress</h4>
+                                <span class="card-count" id="count-progress">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-progress"></div>
+                        </div>
+
+                        <!-- Column: Peer Review -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>Peer Review</h4>
+                                <span class="card-count" id="count-review">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-review"></div>
+                        </div>
+
+                        <!-- Column: Testing -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>Testing</h4>
+                                <span class="card-count" id="count-testing">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-testing"></div>
+                        </div>
+
+                        <!-- Column: Done -->
+                        <div class="scrumban-column">
+                            <div class="column-header">
+                                <h4>Done</h4>
+                                <span class="card-count" id="count-done">0</span>
+                            </div>
+                            <div class="column-cards-container" id="col-done"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agile Metrics Canvas Dashboard -->
+            <div class="content-header" style="margin-top: 40px; margin-bottom: 20px;">
+                <h2>Agile Analytics Dashboard</h2>
+            </div>
+            
+            <div class="charts-grid">
+                <!-- Throughput chart -->
+                <div class="chart-card">
+                    <h3>Throughput (Stories Completed per Sprint)</h3>
+                    <div class="canvas-container">
+                        <canvas id="throughputChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Escaped Defects chart -->
+                <div class="chart-card">
+                    <h3>Escaped Defects per Sprint</h3>
+                    <div class="canvas-container">
+                        <canvas id="defectsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Team Health Gauge -->
+                <div class="chart-card" style="grid-column: span 2;">
+                    <h3>Team Health Assessment (Sprint Avg: 4.6 / 5)</h3>
+                    <div class="canvas-container" style="max-width: 500px;">
+                        <canvas id="healthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- App Scripts -->
+    <script src="js/reports.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/agile.js"></script>
+</body>
+</html>

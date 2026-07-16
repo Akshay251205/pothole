@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority Login - RoadGuard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-road"></i> RoadGuard
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="citizen-dashboard.html" class="nav-link">Citizen Portal</a></li>
+                    <li><a href="report-pothole.html" class="nav-link">Report Pothole</a></li>
+                    <li><a href="track-status.html" class="nav-link">Track Status</a></li>
+                    <li><a href="authority-login.html" class="nav-link active">Authority Login</a></li>
+                    <li><a href="agile-management.html" class="nav-link">Agile PM</a></li>
+                    <li><a href="cicd.html" class="nav-link">CI/CD</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger-menu" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Auth Card Wrapper -->
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Authority Login</h2>
+                <p>Municipal engineers and corporation heads log in here to manage works.</p>
+            </div>
+
+            <form id="authority-login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="e.g. admin" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                    <i class="fas fa-user-shield"></i> Administrative Login
+                </button>
+
+                <button type="button" id="autofill-admin-btn" class="btn btn-secondary" style="width: 100%; margin-top: 12px; font-size:13px;">
+                    <i class="fas fa-lock-open"></i> Autofill Admin Credentials
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- App Scripts -->
+    <script src="js/reports.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Autofill admin credentials
+            const autofillBtn = document.getElementById('autofill-admin-btn');
+            if (autofillBtn) {
+                autofillBtn.addEventListener('click', () => {
+                    document.getElementById('username').value = 'admin';
+                    document.getElementById('password').value = 'admin123';
+                    showToast('Admin credentials autofilled!', 'info');
+                });
+            }
+
+            // Handle submission
+            const form = document.getElementById('authority-login-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const username = document.getElementById('username').value.trim();
+                    const password = document.getElementById('password').value;
+
+                    const res = Auth.loginAuthority(username, password);
+                    if (res.success) {
+                        showToast('Authority verified! Loading admin dashboard...', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'authority-dashboard.html';
+                        }, 1000);
+                    } else {
+                        showToast(res.message, 'danger');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

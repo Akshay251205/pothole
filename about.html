@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About RoadGuard - Smart Road Pothole System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-road"></i> RoadGuard
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="citizen-dashboard.html" class="nav-link">Citizen Portal</a></li>
+                    <li><a href="report-pothole.html" class="nav-link">Report Pothole</a></li>
+                    <li><a href="track-status.html" class="nav-link">Track Status</a></li>
+                    <li><a href="authority-login.html" class="nav-link">Authority Login</a></li>
+                    <li><a href="agile-management.html" class="nav-link">Agile PM</a></li>
+                    <li><a href="cicd.html" class="nav-link">CI/CD</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger-menu" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main About Content -->
+    <div class="container section">
+        <div class="section-header">
+            <h2>About RoadGuard</h2>
+            <p>Smart India Hackathon project addressing public road safety, citizen-driven audit compliance, and transparent municipal management.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-content">
+                <h3>1. The Problem Statement</h3>
+                <p>Poorly maintained public roads and potholes lead to severe traffic delays, damage to passenger vehicles, and fatal road accidents. Often, municipal authorities lack real-time visibility into localized road damage, while citizens find it difficult to register and track repair progress transparently.</p>
+
+                <h3>2. Our Solution</h3>
+                <p>RoadGuard acts as a direct, digital bridge. Citizens can easily upload geotagged photo evidence of potholes, and monitor status tracking timelines. Concurrently, municipal administrators can log in, filter reports, allocate repair squads, log remarks, and monitor macro analytics via Canvas-based charts.</p>
+
+                <h3>3. Project Implementation Scope</h3>
+                <p>This web portal is designed for demonstration and evaluation. In place of a live database, we utilize JavaScript <strong>LocalStorage</strong> to allow dynamic CRUD actions that persist across reloads. Images are loaded as base64 data URLs via the HTML5 <strong>FileReader API</strong>.</p>
+            </div>
+
+            <!-- Technology Used and Details Box -->
+            <div style="display:flex; flex-direction:column; gap:20px;">
+                <div class="dashboard-card" style="border-left: 4px solid var(--primary-color);">
+                    <h4 style="font-weight:700; margin-bottom: 12px;">Technology Stack</h4>
+                    <ul style="list-style:none; padding-left: 5px; line-height: 1.8; font-size:14px; color:var(--text-muted);">
+                        <li><i class="fab fa-html5" style="color:#E34F26; margin-right:8px;"></i> HTML5 (Semantic Structure)</li>
+                        <li><i class="fab fa-css3-alt" style="color:#1572B6; margin-right:8px;"></i> CSS3 Stylesheet (Themes)</li>
+                        <li><i class="fab fa-js-square" style="color:#F7DF1E; margin-right:8px;"></i> Vanilla JavaScript (DOM & Canvas)</li>
+                        <li><i class="fas fa-database" style="color:var(--text-muted); margin-right:8px;"></i> LocalStorage Simulated DB</li>
+                        <li><i class="fas fa-image" style="color:var(--success-color); margin-right:8px;"></i> FileReader API</li>
+                    </ul>
+                </div>
+
+                <div class="dashboard-card" style="border-left: 4px solid var(--success-color);">
+                    <h4 style="font-weight:700; margin-bottom: 12px;">Agile PM Benefits</h4>
+                    <p style="font-size:13.5px; color:var(--text-muted); line-height:1.6;">
+                        Project features Jira boards with 28 user stories, drag-and-drop Scrumban planning, sprint velocity charts, and team health audits to simulate real-world developer team environments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>RoadGuard</h3>
+                <p>Municipal Road Pothole Audit and Tracking system under the Smart India Hackathon initiative. Built to foster community-driven governance and transparent infrastructure repair tracking.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="citizen-dashboard.html">Citizen Dashboard</a></li>
+                    <li><a href="authority-login.html">Municipal Authority Panel</a></li>
+                    <li><a href="agile-management.html">Agile PM Backlog</a></li>
+                    <li><a href="cicd.html">Simulated CI/CD Workflow</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Support</h4>
+                <p style="font-size:14px; color:var(--text-muted); margin-bottom: 10px;">
+                    <i class="fas fa-envelope"></i> helpdesk@roadguard.gov.in<br>
+                    <i class="fas fa-phone"></i> +91 11-23456789
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 RoadGuard - Ministry of Road Transport & Highways, Govt. of India. All rights reserved.</p>
+            <p>SIH Team ID: <strong>SIH-2026-RG04</strong></p>
+        </div>
+    </footer>
+
+    <!-- App Scripts -->
+    <script src="js/reports.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

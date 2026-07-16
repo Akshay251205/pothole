@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact RoadGuard - Support & Assistance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-road"></i> RoadGuard
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="citizen-dashboard.html" class="nav-link">Citizen Portal</a></li>
+                    <li><a href="report-pothole.html" class="nav-link">Report Pothole</a></li>
+                    <li><a href="track-status.html" class="nav-link">Track Status</a></li>
+                    <li><a href="authority-login.html" class="nav-link">Authority Login</a></li>
+                    <li><a href="agile-management.html" class="nav-link">Agile PM</a></li>
+                    <li><a href="cicd.html" class="nav-link">CI/CD</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger-menu" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container section">
+        <div class="section-header">
+            <h2>Contact Technical Support</h2>
+            <p>File general inquiries, request access permissions, or log portal glitches.</p>
+        </div>
+
+        <div class="about-grid">
+            
+            <!-- Contact Form Card -->
+            <div class="dashboard-card">
+                <form id="contact-form">
+                    <h3 style="margin-bottom: 20px; font-weight:700; color:var(--primary-color);">Inquiry Form</h3>
+                    
+                    <div class="form-group">
+                        <label for="contact-name">Full Name</label>
+                        <input type="text" id="contact-name" class="form-control" placeholder="Vikram Malhotra" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" class="form-control" placeholder="vikram@domain.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-msg">Message / Inquiry Details</label>
+                        <textarea id="contact-msg" class="form-control" rows="5" placeholder="Provide full details of your request..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+                        <i class="fas fa-paper-plane"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+
+            <!-- Styled Map Placeholder card -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="dashboard-card" style="padding: 0; overflow:hidden; border: 1px solid var(--border-color);">
+                    <!-- Title -->
+                    <div style="padding: 20px 24px 10px 24px;">
+                        <h4 style="font-weight: 700; margin-bottom: 5px;">Headquarters Location</h4>
+                        <p style="font-size: 12px; color:var(--text-muted);">Ministry of Road Transport & Highways, New Delhi</p>
+                    </div>
+                    
+                    <!-- Simulated Map SVG -->
+                    <svg viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg" style="background-color: #e0f2f1; width:100%; display:block;">
+                        <!-- Grid paths for streets -->
+                        <line x1="20" y1="0" x2="20" y2="200" stroke="#FFF" stroke-width="8"/>
+                        <line x1="120" y1="0" x2="120" y2="200" stroke="#FFF" stroke-width="12"/>
+                        <line x1="220" y1="0" x2="220" y2="200" stroke="#FFF" stroke-width="8"/>
+                        <line x1="320" y1="0" x2="320" y2="200" stroke="#FFF" stroke-width="8"/>
+
+                        <line x1="0" y1="40" x2="350" y2="40" stroke="#FFF" stroke-width="10"/>
+                        <line x1="0" y1="120" x2="350" y2="120" stroke="#FFF" stroke-width="12"/>
+
+                        <!-- Parks / Plots -->
+                        <rect x="30" y="50" width="80" height="60" fill="#a5d6a7" rx="4"/>
+                        <rect x="230" y="50" width="80" height="60" fill="#b0bec5" rx="4"/>
+                        <rect x="130" y="130" width="80" height="60" fill="#a5d6a7" rx="4"/>
+
+                        <!-- Pin indicator -->
+                        <circle cx="120" cy="120" r="10" fill="#D32F2F"/>
+                        <circle cx="120" cy="120" r="4" fill="#FFF"/>
+                        <path d="M 120 120 L 114 100 A 8 8 0 0 1 126 100 Z" fill="#D32F2F"/>
+                    </svg>
+                </div>
+
+                <!-- Office Contact info card -->
+                <div class="dashboard-card">
+                    <h4 style="font-weight: 700; margin-bottom: 12px;">Office Inquiries</h4>
+                    <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+                        <strong>RoadGuard Support Cell</strong><br>
+                        Transport Bhawan, 1 Parliament Street,<br>
+                        New Delhi, Delhi 110001<br>
+                        <i class="fas fa-clock" style="margin-right: 5px;"></i> Monday - Friday: 9:00 AM - 5:30 PM
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>RoadGuard</h3>
+                <p>Municipal Road Pothole Audit and Tracking system under the Smart India Hackathon initiative. Built to foster community-driven governance and transparent infrastructure repair tracking.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="citizen-dashboard.html">Citizen Dashboard</a></li>
+                    <li><a href="authority-login.html">Municipal Authority Panel</a></li>
+                    <li><a href="agile-management.html">Agile PM Backlog</a></li>
+                    <li><a href="cicd.html">Simulated CI/CD Workflow</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Support</h4>
+                <p style="font-size:14px; color:var(--text-muted); margin-bottom: 10px;">
+                    <i class="fas fa-envelope"></i> helpdesk@roadguard.gov.in<br>
+                    <i class="fas fa-phone"></i> +91 11-23456789
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 RoadGuard - Ministry of Road Transport & Highways, Govt. of India. All rights reserved.</p>
+            <p>SIH Team ID: <strong>SIH-2026-RG04</strong></p>
+        </div>
+    </footer>
+
+    <!-- App Scripts -->
+    <script src="js/reports.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('contact-name').value.trim();
+                    showToast(`Thank you, ${name}! Your inquiry has been submitted.`, 'success');
+                    form.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
